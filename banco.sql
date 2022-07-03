@@ -1,9 +1,3 @@
-CREATE DATABASE lanchonete
-ENCODING = 'UTF-8'
-TEMPLATE template0
-
----------------------------------------------
-
 CREATE TABLE tb_funcionarios(
 	id_funcionario	SERIAL,
 	nome			VARCHAR(30) CONSTRAINT nn_tb_func_nome NOT NULL,
