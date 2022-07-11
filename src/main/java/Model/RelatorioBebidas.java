@@ -5,10 +5,7 @@
  */
 package Model;
 
-/**
- *
- * @author gabriel
- */
+/** @author gabriel */
 public class RelatorioBebidas {
     private int idPedido;
     private String cliente;

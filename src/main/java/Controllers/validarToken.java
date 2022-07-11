@@ -5,28 +5,20 @@
  */
 package Controllers;
 
-import DAO.DaoBebida;
 import Helpers.ValidadorCookie;
-import Model.Bebida;
-import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class validarToken extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -37,24 +29,26 @@ public class validarToken extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        
-        ////////Validar Cookie
+
+        //////// Validar Cookie
         boolean resultado = false;
-        
-        try{
-        Cookie[] cookies = request.getCookies();
-        ValidadorCookie validar = new ValidadorCookie();
-        
-        resultado = validar.validar(cookies);
-        }catch(java.lang.NullPointerException e){System.out.println(e);}
+
+        try {
+            Cookie[] cookies = request.getCookies();
+            ValidadorCookie validar = new ValidadorCookie();
+
+            resultado = validar.validar(cookies);
+        } catch (java.lang.NullPointerException e) {
+            System.out.println(e);
+        }
         //////////////
-        
-        if(resultado){
-            
+
+        if (resultado) {
+
             try (PrintWriter out = response.getWriter()) {
                 out.println("valido");
                 out.flush();
-                }
+            }
         } else {
             try (PrintWriter out = response.getWriter()) {
                 out.println("erro");
@@ -62,7 +56,8 @@ public class validarToken extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the
+    // left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -99,6 +94,5 @@ public class validarToken extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    } // </editor-fold>
 }

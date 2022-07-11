@@ -9,18 +9,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DaoUtil {
-    
-    public Connection conecta(){
-        try{
+
+    public Connection conecta() {
+        try {
             String url = "jdbc:postgresql://localhost:5432/lanchonete";
             String usuario = "postgres";
             String senha = "123456";
             return DriverManager.getConnection(url, usuario, senha);
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        
     }
-    
 }

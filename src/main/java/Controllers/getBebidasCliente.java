@@ -16,15 +16,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class getBebidasCliente extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -35,7 +31,7 @@ public class getBebidasCliente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        
+
         DaoBebida bebidaDAO = new DaoBebida();
 
         List<Bebida> bebidas = bebidaDAO.listarTodos();
@@ -46,11 +42,11 @@ public class getBebidasCliente extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             out.print(json);
             out.flush();
-            }
-        
+        }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the
+    // left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -87,6 +83,5 @@ public class getBebidasCliente extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    } // </editor-fold>
 }

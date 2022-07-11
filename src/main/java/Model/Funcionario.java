@@ -5,10 +5,7 @@
  */
 package Model;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class Funcionario {
     private int id;
     private String nome;
@@ -67,8 +64,6 @@ public class Funcionario {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
-    
-    
 
     public Double getSalario() {
         return salario;
@@ -77,8 +72,6 @@ public class Funcionario {
     public void setSalario(Double salario) {
         this.salario = salario;
     }
-    
-    
 
     public int getCad_por() {
         return cad_por;
@@ -95,6 +88,4 @@ public class Funcionario {
     public void setFg_ativo(int fg_ativo) {
         this.fg_ativo = fg_ativo;
     }
-    
-    
 }

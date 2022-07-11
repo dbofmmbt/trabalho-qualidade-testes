@@ -5,6 +5,9 @@
  */
 package Controllers;
 
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import DAO.DaoBebida;
 import Helpers.ValidadorCookie;
 import Model.Bebida;
@@ -12,8 +15,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import static java.nio.charset.StandardCharsets.ISO_8859_1;
-import static java.nio.charset.StandardCharsets.UTF_8;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -21,15 +22,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class alterarBebida extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -43,24 +40,26 @@ public class alterarBebida extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
         String json = "";
-        
-        ////////Validar Cookie
+
+        //////// Validar Cookie
         boolean resultado = false;
-        
-        try{
-        Cookie[] cookies = request.getCookies();
-        ValidadorCookie validar = new ValidadorCookie();
-        
-        resultado = validar.validarFuncionario(cookies);
-        }catch(java.lang.NullPointerException e){System.out.println(e);}
+
+        try {
+            Cookie[] cookies = request.getCookies();
+            ValidadorCookie validar = new ValidadorCookie();
+
+            resultado = validar.validarFuncionario(cookies);
+        } catch (java.lang.NullPointerException e) {
+            System.out.println(e);
+        }
         //////////////
-        
+
         if ((br != null) && resultado) {
             json = br.readLine();
-            byte[] bytes = json.getBytes(ISO_8859_1); 
-            String jsonStr = new String(bytes, UTF_8);            
+            byte[] bytes = json.getBytes(ISO_8859_1);
+            String jsonStr = new String(bytes, UTF_8);
             JSONObject dados = new JSONObject(jsonStr);
-            
+
             Bebida bebida = new Bebida();
             bebida.setId_bebida(dados.getInt("id"));
             bebida.setNome(dados.getString("nome"));
@@ -70,20 +69,21 @@ public class alterarBebida extends HttpServlet {
             bebida.setValor_venda(dados.getDouble("ValorVenda"));
             bebida.setTipo(dados.getString("tipo"));
             bebida.setFg_ativo(1);
-            
+
             DaoBebida bebidaDAO = new DaoBebida();
             bebidaDAO.alterar(bebida);
-            
+
             try (PrintWriter out = response.getWriter()) {
-            out.println("Bebida Alterada!");
+                out.println("Bebida Alterada!");
             }
         } else {
             try (PrintWriter out = response.getWriter()) {
-            out.println("erro");
+                out.println("erro");
+            }
         }
     }
-    }
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the
+    // left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -120,6 +120,5 @@ public class alterarBebida extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    } // </editor-fold>
 }

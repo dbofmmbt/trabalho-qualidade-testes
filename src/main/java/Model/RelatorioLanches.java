@@ -5,10 +5,7 @@
  */
 package Model;
 
-/**
- *
- * @author gabriel
- */
+/** @author gabriel */
 public class RelatorioLanches {
     private String lanche;
     private String ingrediente;

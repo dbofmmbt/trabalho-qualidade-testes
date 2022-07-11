@@ -5,12 +5,9 @@
  */
 package Model;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class Ingrediente {
-    
+
     private int id_ingrediente;
     private String nome;
     private String descricao;
@@ -35,7 +32,6 @@ public class Ingrediente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
 
     public String getDescricao() {
         return descricao;
@@ -84,7 +80,4 @@ public class Ingrediente {
     public void setFg_ativo(int fg_ativo) {
         this.fg_ativo = fg_ativo;
     }
-    
-    
-    
 }

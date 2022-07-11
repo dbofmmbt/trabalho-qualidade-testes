@@ -5,10 +5,7 @@
  */
 package Model;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class Pedido {
     private int id_pedido;
     private Cliente cliente;
@@ -46,6 +43,4 @@ public class Pedido {
     public void setValor_total(Double valor_total) {
         this.valor_total = valor_total;
     }
-    
-    
 }

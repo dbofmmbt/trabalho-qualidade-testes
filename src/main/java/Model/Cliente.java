@@ -5,10 +5,7 @@
  */
 package Model;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class Cliente {
     private int id_cliente;
     private String nome;
@@ -82,14 +79,23 @@ public class Cliente {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-    
-    public String resumo(){
-        String string = "Nome: "+this.nome+" "+this.sobrenome+" <br>"
-                + "Telefone: "+this.telefone+" <br>"
-                + "Usuario: "+this.usuario+" <br>"
-                + "Senha: "+this.senha;
-        
+
+    public String resumo() {
+        String string =
+                "Nome: "
+                        + this.nome
+                        + " "
+                        + this.sobrenome
+                        + " <br>"
+                        + "Telefone: "
+                        + this.telefone
+                        + " <br>"
+                        + "Usuario: "
+                        + this.usuario
+                        + " <br>"
+                        + "Senha: "
+                        + this.senha;
+
         return string;
     }
-    
 }

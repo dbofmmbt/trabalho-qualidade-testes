@@ -5,12 +5,9 @@
  */
 package Model;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class Endereco {
-    
+
     private int id_endereco;
     private String rua;
     private String bairro;
@@ -74,7 +71,4 @@ public class Endereco {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-   
-    
-    
 }

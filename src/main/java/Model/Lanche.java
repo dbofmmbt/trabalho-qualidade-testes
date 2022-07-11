@@ -5,10 +5,7 @@
  */
 package Model;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class Lanche {
     private int id_lanche;
     private String nome;
@@ -65,14 +62,12 @@ public class Lanche {
     public void setValor_lanche(Double valor_lanche) {
         this.valor_lanche = valor_lanche;
     }
-    
-     public int getQuantidade() {
+
+    public int getQuantidade() {
         return quantidade;
     }
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-
-    
 }

@@ -8,22 +8,17 @@ package Controllers;
 import Helpers.ValidadorCookie;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.Instant;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class logout extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -33,25 +28,28 @@ public class logout extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        try{
-        Cookie[] cookies = request.getCookies();
-        ValidadorCookie validar = new ValidadorCookie();
-        validar.deletar(cookies);
-        Cookie cookie = new Cookie("tokenFuncionario", "0");
-        Cookie cookie2 = new Cookie("token", "0");
-        cookie.setMaxAge(0);
-        cookie2.setMaxAge(0);
-        response.addCookie(cookie);
-        response.addCookie(cookie2);
-        }catch(java.lang.NullPointerException e){System.out.println(e);}
-        
+
+        try {
+            Cookie[] cookies = request.getCookies();
+            ValidadorCookie validar = new ValidadorCookie();
+            validar.deletar(cookies);
+            Cookie cookie = new Cookie("tokenFuncionario", "0");
+            Cookie cookie2 = new Cookie("token", "0");
+            cookie.setMaxAge(0);
+            cookie2.setMaxAge(0);
+            response.addCookie(cookie);
+            response.addCookie(cookie2);
+        } catch (java.lang.NullPointerException e) {
+            System.out.println(e);
+        }
+
         try (PrintWriter out = response.getWriter()) {
-           out.print("Deslogado");
+            out.print("Deslogado");
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the
+    // left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -88,6 +86,5 @@ public class logout extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    } // </editor-fold>
 }

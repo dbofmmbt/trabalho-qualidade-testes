@@ -5,12 +5,9 @@
  */
 package Model;
 
-/**
- *
- * @author kener_000
- */
+/** @author kener_000 */
 public class Bebida {
-    
+
     private int id_bebida;
     private String nome;
     private String descricao;
@@ -83,6 +80,4 @@ public class Bebida {
     public void setFg_ativo(int fg_ativo) {
         this.fg_ativo = fg_ativo;
     }
-    
-    
 }

@@ -5,10 +5,7 @@
  */
 package Model;
 
-/**
- *
- * @author gabriel
- */
+/** @author gabriel */
 public class RelatorioGastos {
     private float custo;
     private float venda;
