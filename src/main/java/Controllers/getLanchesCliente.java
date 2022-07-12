@@ -19,6 +19,22 @@ import javax.servlet.http.HttpServletResponse;
 /** @author kener_000 */
 public class getLanchesCliente extends HttpServlet {
 
+    private DaoLanche daoLanche;
+
+    public getLanchesCliente() {}
+
+    public getLanchesCliente(DaoLanche daoLanche) {
+        this.daoLanche = daoLanche;
+    }
+
+    public DaoLanche getDaoLanche() {
+        return daoLanche;
+    }
+
+    public void setDaoLanche(DaoLanche daoLanche) {
+        this.daoLanche = daoLanche;
+    }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
@@ -32,7 +48,13 @@ public class getLanchesCliente extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        DaoLanche lancheDAO = new DaoLanche();
+        DaoLanche lancheDAO;
+
+        if (this.daoLanche != null) {
+            lancheDAO = this.daoLanche;
+        } else {
+            lancheDAO = new DaoLanche();
+        }
 
         List<Lanche> lanches = lancheDAO.listarTodos();
 
