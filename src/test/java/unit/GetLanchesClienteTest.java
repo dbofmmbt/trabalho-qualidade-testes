@@ -41,6 +41,7 @@ public class GetLanchesClienteTest {
 
     @Test
     public void listsAll() throws ServletException, IOException {
+        // Test setup
         Lanche hamburguer = new Lanche();
         hamburguer.setNome("hamburguer");
 
@@ -49,8 +50,10 @@ public class GetLanchesClienteTest {
 
         when(daoLanche.listarTodos()).thenReturn(Arrays.asList(hamburguer, pizza));
 
+        // Action
         servlet.processRequest(request, response);
 
+        // Assertions
         writer.flush();
         Assertions.assertTrue(stringWriter.toString().contains(hamburguer.getNome()));
         Assertions.assertTrue(stringWriter.toString().contains(pizza.getNome()));
